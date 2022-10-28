@@ -33,6 +33,8 @@ const Navbar = () => {
                        </li>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
                         <li><NavLink to='/faq'>FAQ</NavLink></li>
+                        <li><NavLink to='/login'>Login</NavLink></li>
+                        <li><NavLink to='/signup'>Sign Up</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
