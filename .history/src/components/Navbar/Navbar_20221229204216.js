@@ -56,7 +56,7 @@ const Navbar = () => {
                     />
                 <label tabIndex={0} className="">
                 
-                    <div className="w-10 rounded-full m-4 tooltip tooltip-bottom" data-tip={`${user?.displayName}`}>
+                    <div className="w-10 rounded-full m-4 tooltip tooltip-bottom" data-tip={`${user?.name}`}>
                         
                         <>
                         {

@@ -11,7 +11,7 @@ const Navbar = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 
     const {user} = useContext(AuthContext)
-    
+    console.log(user.nnam)
     return (
         <div className=' mb-10'>
             <div className="navbar bg-red-100">
@@ -56,7 +56,7 @@ const Navbar = () => {
                     />
                 <label tabIndex={0} className="">
                 
-                    <div className="w-10 rounded-full m-4 tooltip tooltip-bottom" data-tip={`${user?.displayName}`}>
+                    <div className="w-10 rounded-full m-4 tooltip tooltip-bottom" data-tip={`${user?.name}`}>
                         
                         <>
                         {

@@ -11,7 +11,6 @@ const Navbar = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 
     const {user} = useContext(AuthContext)
-    
     return (
         <div className=' mb-10'>
             <div className="navbar bg-red-100">

@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Signup = () => {
 
     const {createUser} = useContext(AuthContext)
-    const navigate = useNavigate()
+    const navigate 
     const handelSubmit = (e)=>{
         e.preventDefault()
         const form = e.target
         const name = form.name.value
         const email = form.email.value
-        const photo = form.photoUrl.value
+        const photo = form.photourl.value
         const password = form.password.value;
         console.log(name, email, photo, password)
         createUser(email, password)
@@ -19,7 +19,6 @@ const Signup = () => {
             const user =result.user
             console.log(user)
             form.reset()
-            navigate('/home')
         })
         .catch((e) => console.error(e))
     }
@@ -51,7 +50,7 @@ const Signup = () => {
                     </div>
                     <div>
                         <lable className="text-sm font-medium leading-none text-gray-800">Photo URL</lable>
-                        <input aria-label="enter photo url" role="input" name="photoUrl" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                        <input aria-label="enter photo url" role="input" name="photourl" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                     </div>
                     <div className="mt-6  w-full">
                         <lable className="text-sm font-medium leading-none text-gray-800">Password</lable>
