@@ -3,10 +3,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Home from '../src/components/Home/Home'
 import Courses from '../src/components/Courses/Courses';
-import Footer from '../src/components/Footer/Footer';
+
 import Error from '../src/components/Error/Error'
 import Login from './components/Login/Login';
-import Signup from './components/Sign-Up/Signup'
+import Signup from './components/Sign-Up/Signup';
+import Blog from './components/Blog/Blog';
+import Faq from './components/Faq/Faq';
+
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +19,12 @@ function App() {
       element:<Main></Main>,
 
       children: [
+        {
+          path: '/',
+          loader: ()=> fetch('http://localhost:5000/courses'),
+          
+          element: <Home></Home>
+      },
         {
           path: '/home',
 
@@ -29,6 +38,16 @@ function App() {
         loader: ()=> fetch('http://localhost:5000/courses'),
 
         element:<Courses></Courses>
+      },
+      {
+        path: '/blog',
+
+        element:<Blog></Blog>
+      },
+      {
+        path:'/faq',
+
+        element:<Faq></Faq>
       },
       {
         path:'/login',
@@ -52,7 +71,7 @@ function App() {
     <div className="App">
 
       <RouterProvider router={router}></RouterProvider>
-      <Footer></Footer>
+     
       
     </div>
   );

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../logo.png';
 import {NavLink} from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import {FaUserAlt } from 'react-icons/fa';
+import DarkModeToggle from "react-dark-mode-toggle";
+
+
 
 const Navbar = () => {
+    const [isDarkMode, setIsDarkMode] = useState(() => false);
+
+    const {user} = useContext(AuthContext)
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className=' mb-10'>
+            <div className="navbar bg-red-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -18,12 +26,14 @@ const Navbar = () => {
                        </li>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
                         <li><NavLink to='/faq'>FAQ</NavLink></li>
+                        <li><NavLink to='/login'>Login</NavLink></li>
+                        <li><NavLink to='/signup'>Sign Up</NavLink></li>
                     </ul>
                     </div>
                     <div className="md:w-10 rounded-full">
-                    <img src={logo} />
+                    <img src={logo} alt=''/>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Courses-Bangla</a>
+                    <a className="btn btn-ghost normal-case text-xl" href='#'>Courses-Bangla</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -38,13 +48,26 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" />
+                    <DarkModeToggle
+                    onChange={setIsDarkMode}
+                    checked={isDarkMode}
+                    size={60}
+                    />
+                <label tabIndex={0} className="">
+                
+                    <div className="w-10 rounded-full m-4">
+                        
+                        {
+                          user?.photoURL ?
+                          <img className="mask mask-circle" src={user?.photoURL} alt='auth'/>  
+                          :
+                          <FaUserAlt></FaUserAlt> 
+                        }
                     </div>
                 </label>
                 </div>
             </div>
+            
         </div>
     );
 };

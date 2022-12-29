@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Signup = () => {
@@ -35,7 +34,7 @@ const Signup = () => {
                         Have a account?{" "}
                         <span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
                             {" "}
-                            <Link to='/login'>Login here</Link>
+                            
                         </span>
                     </p>
                    

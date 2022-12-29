@@ -35,7 +35,7 @@ const Signup = () => {
                         Have a account?{" "}
                         <span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
                             {" "}
-                            <Link to='/login'>Login here</Link>
+                            <Link>Login here</Link>
                         </span>
                     </p>
                    

@@ -8,7 +8,7 @@ const Home = () => {
             {
                courses.map(course=>{
                    return(
-                <div className="card card-compact w-90 bg-base-100 shadow-2xl shadow-indigo-500/40">
+                <div key={course.id} className="card card-compact w-90 bg-base-100 shadow-2xl shadow-indigo-500/40">
                      <figure className="px-10 pt-10">
                          <img src={course.logo} alt={course.name} className="rounded-xl" />
                      </figure>
