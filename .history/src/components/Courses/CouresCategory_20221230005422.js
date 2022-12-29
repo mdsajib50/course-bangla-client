@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CouresCategory = ({courses}) => {
-    
+    const [newCategory, setNewCategory] = useState([])
     const category = courses.map(course => course.category)
     const categories = [...new Set(category)]
     console.log(categories)
@@ -10,7 +10,7 @@ const CouresCategory = ({courses}) => {
             {
                 categories.map(category => {return(
                     <div>
-                        <a className="link link-hover">{category}</a>
+                        <a className="link link-hover">{course.category}</a>
                     </div>
 
                 )})

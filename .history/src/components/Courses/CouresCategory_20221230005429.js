@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CouresCategory = ({courses}) => {
-    
+    const [newCategory, setNewCategory] = useState([])
     const category = courses.map(course => course.category)
     const categories = [...new Set(category)]
     console.log(categories)

@@ -16,7 +16,7 @@ const Blog = () => {
                 <p>The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.</p>
             </div>
             <div className='w-1/2 m-0 mx-auto bg-slate-200 p-6 mt-2'>
-                <h1 className ='font-semibold text-lg'>What is Node? How does Node work?</h1>
+                <h1>What is Node? How does Node work?</h1>
                 <p>Node. js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.</p>
             </div>
         </div>
