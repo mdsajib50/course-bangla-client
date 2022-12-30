@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 
-const CoursesCard = ({course}) => {
-
+const Details = () => {
+    const course = useLoaderData()
     return (
-                <div className="card w-90 bg-base-100 shadow-2xl shadow-indigo-500/40">
+        <div className="card w-90 bg-base-100 shadow-2xl shadow-indigo-500/40">
                     <figure className="px-10 pt-10">
                     <img src={course.logo} alt={course.name} className="rounded-xl" />
                     </figure>
@@ -12,12 +12,11 @@ const CoursesCard = ({course}) => {
                         <h2 className="card-title">{course.name}</h2>
                         <p className='text-ellipsis'>{`${course.description.substring(0,100)} ...`}</p>
                         <div className="card-actions">
-                        <Link to={`/course-details/${course.id}`}><button className="btn btn-primary">Details</button></Link>
+                        <button className="btn btn-primary">Details</button>
                         </div>
                     </div>
                 </div>
-        
     );
 };
 
-export default CoursesCard;
+export default Details;

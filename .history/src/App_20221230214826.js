@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Home from '../src/components/Home/Home'
 import Courses from '../src/components/Courses/Courses';
-import Details from '../src/components/Courses/Details';
 
 import Error from '../src/components/Error/Error'
 import Login from './components/Login/Login';

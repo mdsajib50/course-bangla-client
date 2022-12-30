@@ -12,7 +12,7 @@ const CoursesCard = ({course}) => {
                         <h2 className="card-title">{course.name}</h2>
                         <p className='text-ellipsis'>{`${course.description.substring(0,100)} ...`}</p>
                         <div className="card-actions">
-                        <Link to={`/course-details/${course.id}`}><button className="btn btn-primary">Details</button></Link>
+                        <Link to={`/cou-details/${course.id}`}><button className="btn btn-primary">Details</button></Link>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const CoursesCard = ({course}) => {
 
@@ -10,9 +9,9 @@ const CoursesCard = ({course}) => {
                     </figure>
                     <div className="card-body items-center text-center">
                         <h2 className="card-title">{course.name}</h2>
-                        <p className='text-ellipsis'>{`${course.description.substring(0,100)} ...`}</p>
+                        <p>{course.de}</p>
                         <div className="card-actions">
-                        <Link to={`/course-details/${course.id}`}><button className="btn btn-primary">Details</button></Link>
+                        <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>
