@@ -21,21 +21,21 @@ function App() {
       children: [
         {
           path: '/',
-          loader: ()=> fetch('http://localhost:5000/courses'),
+          loader: ()=> fetch(https://courses-bangla-server.vercel.app/courses'),
           
           element: <Home></Home>
       },
         {
           path: '/home',
 
-          loader: ()=> fetch('http://localhost:5000/courses'),
+          loader: ()=> fetch(https://courses-bangla-server.vercel.app/courses'),
 
           element: <Home></Home>
       },
       {
         path:'/courses',
 
-        loader: ()=> fetch('http://localhost:5000/courses'),
+        loader: ()=> fetch(https://courses-bangla-server.vercel.app/courses'),
 
         element:<Courses></Courses>
       },
@@ -61,7 +61,7 @@ function App() {
       },
       {
         path: '/course-details/:id',
-        loader:({params})=> fetch(`http://localhost:5000/courses/${p}`)
+        loader:({params})=> fetch(`https://courses-bangla-server.vercel.app/courses/${p}`)
       }
       ]
       

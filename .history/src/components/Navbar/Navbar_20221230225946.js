@@ -1,0 +1,93 @@
+import React, { useContext, useState } from 'react';
+import logo from '../../logo.png';
+import {NavLink} from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import {FaUserAlt } from 'react-icons/fa';
+import DarkModeToggle from "react-dark-mode-toggle";
+import { Document, Page } from 'react-pdf';
+
+
+
+const Navbar = () => {
+    const [isDarkMode, setIsDarkMode] = useState(() => false);
+
+    const {user} = useContext(AuthContext)
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+    
+    return (
+        <div className=' mb-10'>
+            <div className="navbar bg-red-100">
+                <div className="navbar-start">
+                    <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><NavLink to='/home'>Home</NavLink></li>
+                        <li tabIndex={0}>
+                        <NavLink to='/courses' className="justify-between">Courses</NavLink>
+                       </li>
+                        <li><NavLink to='/blog'>Blog</NavLink></li>
+                        <li><NavLink to='/faq'>FAQ</NavLink></li>
+                        <li><NavLink to='/login'>Login</NavLink></li>
+                        <li><NavLink to='/signup'>Sign Up</NavLink></li>
+                    </ul>
+                    </div>
+                    <div className="md:w-10 rounded-full">
+                    <img src={logo} alt=''/>
+                    </div>
+                    <a className="btn btn-ghost normal-case text-xl" href='#'>Courses-Bangla</a>
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal p-0">
+                    <li><NavLink to='/home'>Home</NavLink></li>
+                        <li tabIndex={0}>
+                        <NavLink to='/courses' className="justify-between">Courses</NavLink>
+                       </li>
+                        <li><NavLink to='/blog'>Blog</NavLink></li>
+                        <li><NavLink to='/faq'>FAQ</NavLink></li>
+                        <li><NavLink to='/login'>Login</NavLink></li>
+                        <li><NavLink to='/signup'>Sign Up</NavLink></li>
+                    </ul>
+                </div>
+                <div>
+                    <Document file="somefile.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+                        <Page pageNumber={pageNumber} />
+                    </Document>
+                    <p>
+                        Page {pageNumber} of {numPages}
+                    </p>
+    </div>
+                <div className="navbar-end">
+                    <DarkModeToggle
+                    onChange={setIsDarkMode}
+                    checked={isDarkMode}
+                    size={60}
+                    />
+                <label tabIndex={0} className="">
+                
+                    <div className="w-10 rounded-full m-4 tooltip tooltip-bottom" data-tip={`${user?.displayName}`}>
+                        
+                        <>
+                        {
+                          user?.photoURL ?
+                          <img className="mask mask-circle" src={user?.photoURL} alt='auth'/>  
+                          :
+                          <FaUserAlt></FaUserAlt> 
+                        }
+                        </>
+                    </div>
+                </label>
+                </div>
+            </div>
+            
+        </div>
+    );
+};
+
+export default Navbar;
